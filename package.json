@@ -1,0 +1,40 @@
+{
+	"name": "peak",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "",
+	"author": {
+		"name": "Xat",
+		"email": "i@xat.sh",
+		"url": "https://xat.sh"
+	},
+	"license": "MIT",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro check && astro build",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix --flag unstable_ts_config"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^4.0.2",
+		"@astrojs/react": "^4.0.0",
+		"@iconify-json/mingcute": "^1.2.1",
+		"@iconify-json/ri": "^1.2.3",
+		"@types/react": "18",
+		"@types/react-dom": "18",
+		"@unocss/reset": "^0.65.1",
+		"astro": "^5.0.4",
+		"motion": "^11.13.5",
+		"react": "18",
+		"react-dom": "18",
+		"typescript": "^5.7.2",
+		"unocss": "^0.65.1",
+		"vite-plugin-font": "^4.0.0"
+	},
+	"devDependencies": {
+		"@types/bun": "^1.1.14",
+		"@xats/eslint-config": "^1.2.11",
+		"eslint": "^9.16.0",
+		"jiti": "^2.4.1"
+	}
+}
