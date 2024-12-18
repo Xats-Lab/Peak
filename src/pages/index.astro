@@ -1,0 +1,87 @@
+---
+import Image from "astro/components/Image.astro"
+
+import blobSvg from "@/assets/image/blob.svg"
+import bookPng from "@/assets/image/book.png"
+import coursePng from "@/assets/image/course.png"
+import paperPng from "@/assets/image/paper.png"
+import projectPng from "@/assets/image/project.png"
+import { Intro } from "@/components/intro"
+import BaseLayout from "@/layouts/base-layout.astro"
+import { getConfig } from "@/utils/get-config"
+
+const title = getConfig().website.title
+const description = getConfig().info.status
+const index = getConfig().index
+---
+
+<BaseLayout description={description} title={title}>
+	<Image alt="Blob" class="oversize:top-0 absolute right-0 z-0 w-6/12 -top-14" loading="eager" src={blobSvg} />
+	<Intro />
+	<content class="mt-[249px] flex flex-col items-center">
+		<h2 class="p-2.5 text-5xl text-[#26267C] font-semibold">个人成果</h2>
+		<span class="h-1 w-25 rounded-sm bg-[#393939]"></span>
+		<div class="flex flex-col gap-20 pt-20">
+			<div
+				class="h-[524px] w-[960px] flex gap-2.5 rounded-3xl bg-white"
+				style={{
+					boxShadow: "0px 6px 64px 0px #7090B01A",
+				}}
+			>
+				<Image alt="Course" class="h-full w-1/2" loading="eager" src={coursePng} />
+				<div class="w-1/2 flex items-center justify-center">
+					<div class="flex flex-col justify-center gap-6">
+						<h3 class="text-[40px] text-[#266EFF] font-semibold">{index.course.name}</h3>
+						<p class="w-102 text-[#828282]">{index.course.description}</p>
+						<a href="/course"><button class="w-30 border border-[#25282B] rounded-3xl px-6 py-2">查看课程</button></a>
+					</div>
+				</div>
+			</div>
+			<div
+				class="h-[524px] w-[960px] flex flex-row-reverse rounded-3xl bg-white"
+				style={{
+					boxShadow: "0px 6px 64px 0px #7090B01A",
+				}}
+			>
+				<Image alt="Project" class="h-full w-1/2" loading="eager" src={projectPng} />
+				<div class="w-1/2 flex items-center justify-center">
+					<div class="flex flex-col justify-center gap-6">
+						<h3 class="text-[40px] text-[#266EFF] font-semibold">{index.project.name}</h3>
+						<p class="w-102 text-[#828282]">{index.project.description}</p>
+						<a href="/project"><button class="w-30 border border-[#25282B] rounded-3xl px-6 py-2">查看项目</button></a>
+					</div>
+				</div>
+			</div>
+			<div
+				class="h-[524px] w-[960px] flex rounded-3xl bg-white"
+				style={{
+					boxShadow: "0px 6px 64px 0px #7090B01A",
+				}}
+			>
+				<Image alt="Book" class="h-full w-1/2" loading="eager" src={bookPng} />
+				<div class="w-1/2 flex items-center justify-center">
+					<div class="flex flex-col justify-center gap-6">
+						<h3 class="text-[40px] text-[#266EFF] font-semibold">{index.book.name}</h3>
+						<p class="w-102 text-[#828282]">{index.book.description}</p>
+						<a href="/book"><button class="w-30 border border-[#25282B] rounded-3xl px-6 py-2">查看书籍</button></a>
+					</div>
+				</div>
+			</div>
+			<div
+				class="h-[524px] w-[960px] flex flex-row-reverse rounded-3xl bg-white"
+				style={{
+					boxShadow: "0px 6px 64px 0px #7090B01A",
+				}}
+			>
+				<Image alt="Paper" class="h-full w-1/2" loading="eager" src={paperPng} />
+				<div class="w-1/2 flex items-center justify-center">
+					<div class="flex flex-col justify-center gap-6">
+						<h3 class="text-[40px] text-[#266EFF] font-semibold">{index.paper.name}</h3>
+						<p class="w-102 text-[#828282]">{index.paper.description}</p>
+						<a href="/paper"><button class="w-30 border border-[#25282B] rounded-3xl px-6 py-2">查看论文</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</content>
+</BaseLayout>

@@ -1,0 +1,62 @@
+---
+import { ClientRouter } from "astro:transitions"
+
+import { Footer } from "@/components/footer"
+import { Header } from "@/components/header"
+import { Main } from "@/components/main"
+
+import "@/assets/font/mi-sans/MiSans-Regular.otf"
+import "@/assets/font/mi-sans/MiSans-Bold.otf"
+import "@/assets/font/source-han-serif/SourceHanSerif-Regular.otf"
+import "@/assets/font/source-han-serif/SourceHanSerif-Bold.otf"
+
+interface Props {
+	description: string
+	title: string
+}
+
+const { description, title } = Astro.props
+---
+<html lang="zh-Hans">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			content={description}
+			name="description"
+		/>
+		<meta
+			content="width=device-width, initial-scale=1.0"
+			name="viewport"
+		/>
+		<meta content="Xat" name="author" />
+		<meta
+			content={Astro.generator}
+			name="generator"
+		/>
+		<link href="/sitemap-index.xml" rel="sitemap" />
+		<link
+			href="/favicon.ico"
+			rel="icon"
+		/>
+		<link
+			href="/apple-touch-icon.png"
+			rel="apple-touch-icon"
+			sizes="180x180"
+		/>
+		<title>{title}</title>
+		<ClientRouter />
+	</head>
+	<body
+		class="min-h-screen flex flex-col items-center bg-[#F9FAFF] font-sans"
+	>
+		<Header />
+		<Main>
+			<slot />
+		</Main>
+		<Footer />
+	</body>
+</html>
+
+<script is:inline>
+  console.log('Made by Xat!');
+</script>
